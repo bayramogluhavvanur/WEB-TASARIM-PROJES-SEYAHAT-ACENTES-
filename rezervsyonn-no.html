@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervasyon Sorgulama</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        body {
+            background: #f2f6ff;
+        }
+
+        .rezervasyon-sayfa {
+            width: 90%;
+            max-width: 1100px;
+            margin: 150px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .baslik {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .tablar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 25px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .tab.aktif {
+            background: #0d6efd;
+            color: white;
+            border: none;
+        }
+
+        .form-alani {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .input {
+            padding: 12px;
+            width: 260px;
+            border-radius: 8px;
+            border: 1px solid #e1e1e1;
+            font-size: 15px;
+        }
+
+        .telefon-grup {
+            display: flex;
+            gap: 5px;
+        }
+
+        .tel-input {
+            width: 170px;
+        }
+
+        .telefon-grup select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .btn-sorgula {
+            padding: 12px 25px;
+            background: #0069ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-sorgula:hover {
+            background: #0053d1;
+        }
+
+        .uyari {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #666;
+        }
+    </style>
+    <!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hakkımızda | Terra Routes</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="terra_foto/favicon_circular2.png"  rel="icon" >
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="/WEB-TASARIM-PROJES-/assets/css/main.css">
+
+
+  <!-- =======================================================
+  * Template Name: TravelTime
+  * Template URL: https://bootstrapmade.com/traveltime-bootstrap-travel-template/
+  * Updated: Jul 28 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+</head>
+
+<body>
+ <div class="header-fixed">
+  <div class="top-bar">
+<div class="top-text">Erken Rezervasyon Son Gün : 18 Aralık</div>
+
+  <div class="countdown"><!-- Üst Bilgi Çubuğu -->
+    <span id="days" class="blink">00</span> Gün
+    <span id="hours" class="blink">00</span> Saat
+    <span id="minutes" class="blink">00</span> Dakika
+    
+  </div>
+
+  <button class="top-btn">Hemen İncele</button>
+</div>
+
+<!-- Admin Panel Menüsü -->
+<div class="admin-menu">
+  <div class="left">
+         <a href="index.html">
+    <img src="terra_foto/favicon_circular2.png" class="menu-logo" alt="Logo">
+  </a>
+  </div>
+
+  <div class="right">
+    <a href="contact.html">444 0 444</a>
+    <a href="contact.html">Yardım</a>
+    <a href="rezervsyonn-no.html">Rezervasyonlarınız</a>
+    <a href="adminpanel2.html" class="login-btn">Giriş Yap</a>
+    <a href="üyeolma.html" class="signup-btn">Üye Ol</a>
+  </div>
+</div>
+</div>
+    
+
+    <div class="rezervasyon-sayfa">
+        <h2 class="baslik">Rezervasyon İşlemleri</h2>
+
+        <div class="tablar">
+            <button class="tab aktif">Otel & Tur & Villa</button>
+            <button class="tab">Otobüs</button>
+        </div>
+
+        <div class="form-alani">
+            <input type="text" class="input" placeholder="Rezervasyon Numarası">
+
+            <div class="telefon-grup">
+                <select>
+                    <option>+90</option>
+                    <option>+49</option>
+                    <option>+1</option>
+                </select>
+
+                <input type="text" class="input tel-input" placeholder="Telefon Numarası">
+            </div>
+
+            <button class="btn-sorgula">Rezervasyonumu Göster</button>
+        </div>
+
+        <p class="uyari">
+            * Rezervasyon Numarası; rezervasyon işlemi sonrası SMS/e-posta ile iletilen 9 haneli özel koddur. (Örn. 123456789)
+        </p>
+
+        <p class="uyari">
+            * Doğrulama kodu; güvenlik için gönderilen 4 haneli SMS kodudur. (Örn. 1234)
+        </p>
+    </div>
+
+      <footer id="footer" class="footer position-relative dark-background">
+
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="footer-content">
+            <a href="index.html" class="logo d-flex align-items-center mb-4">
+              <span class="sitename">Terra Routes</span>
+            </a>
+            <p class="mb-4">Her yolculukta konfor, keşif ve unutulmaz anıları birleştirerek özel deneyimler sunuyoruz.
+            </p>
+
+            <div class="newsletter-form">
+              <h5>Güncel Kalın</h5>
+              <form action="forms/newsletter.php" method="post" class="php-email-form">
+                <div class="input-group">
+                  <input type="email" name="email" class="form-control" placeholder="Enter your email" required="">
+                  <button type="submit" class="btn-subscribe">
+                    <i class="bi bi-send"></i>
+                  </button>
+                </div>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Üyelik oluşturduğunuz için teşekkür ederiz!</div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <div class="footer-links">
+            <h4>Şirket</h4>
+            <ul>
+              <li><a href="about.html"><i class="bi bi-chevron-right"></i> Hakkımızda</a></li>
+              <li><a href="destinations.html"><i class="bi bi-chevron-right"></i> Turlar</a></li>
+              <li><a href="booking.html"><i class="bi bi-chevron-right"></i> Rezervasyon</a></li>
+              <li><a href="tours.html"><i class="bi bi-chevron-right"></i>Kampanyalar/Duyurular</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="footer-contact">
+            <h4>İletişime Geçin</h4>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="contact-info">
+                <p>Sultanahmet Meydanı<br>34122 Fatih/İstanbul<br>Türkiye</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="contact-info">
+                <p>+90 (555) 555 55 55</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <p>terraroutes@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/profile.php?id=61584475692033"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/RoutesTerra"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/in/terra-routes-29b681393/"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="#"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="copyright">
+              <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights
+                  Reserved</span></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="footer-bottom-links">
+              <a href="privacy.html">Gizlilik Politikası</a>
+              <a href="terms.html">Hizmet Şartları</a>
+              <a href="#">Çerez Politikası</a>
+            </div>
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you've purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+              <a href="https://bootstrapmade.com/">BootstrapMade</a> &nbsp;&nbsp;tarafından tasarlandı. </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+    <script>
+  // Sayaç için hedef tarih
+  const target = new Date("2025-12-18T23:59:59").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }, 1000);
+</script>
+
+</body>
+
+
+</html>

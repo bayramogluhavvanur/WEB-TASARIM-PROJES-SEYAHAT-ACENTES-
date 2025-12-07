@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin Panel | Terra Routes</title>
+
+  <link href="terra_foto/favicon_circular2.png"  rel="icon" >
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<style>
+  :root{
+    --bg: #f4f7fb;
+    --panel: #fff;
+    --accent: #0077ff;      /* mavi */
+    --accent-dark:#005ecc;
+    --accent-2: #00b894;    /* yeşil ton (buton) */
+    --muted: #6b7280;
+    --radius: 10px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Poppins',sans-serif;background:var(--bg);color:#0b1220}
+
+  /* Layout */
+  .wrap{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+  .sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#042b4a,#063a5e);
+    color:#fff;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand img{width:48px;height:48px;border-radius:8px;background:#fff;padding:6px}
+  .brand h3{margin:0;font-size:18px;line-height:1}
+  .sidebar p{margin:0;color:rgba(255,255,255,0.85);font-size:13px}
+
+  nav.nav{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+  nav.nav a{
+    display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:rgba(255,255,255,0.9);
+    text-decoration:none;font-weight:600;font-size:14px;
+  }
+  nav.nav a:hover{background:rgba(255,255,255,0.06)}
+  nav.nav a.active{background:rgba(255,255,255,0.12)}
+
+  .sidebar .bottom{
+    margin-top:auto;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .btn-logout{
+    background:transparent;border:1px solid rgba(255,255,255,0.12);padding:8px;border-radius:8px;color:#fff;text-align:center;text-decoration:none;display:block
+  }
+
+  /* CONTENT */
+  .content{
+    flex:1;
+    padding:22px;
+  }
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;
+  }
+  .topbar h2{margin:0;font-size:20px}
+  .top-actions{display:flex;gap:10px;align-items:center}
+  .top-actions .btn{background:var(--accent-2);color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+  .card{
+    background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(8,25,40,0.06);
+  }
+
+  /* FORM */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  input[type="text"], textarea, input[type="file"]{
+    width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:transparent;
+    font-size:14px;
+  }
+  textarea{min-height:120px;resize:vertical}
+  .actions{display:flex;gap:10px;align-items:center;margin-top:10px}
+  .btn-primary{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+  .btn-ghost{background:transparent;border:1px solid #dbeafe;padding:9px 12px;border-radius:8px;color:var(--accent)}
+
+  /* LIST */
+  .list-item{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;border:1px solid #f0f6ff;margin-top:10px}
+  .meta{display:flex;gap:12px;align-items:center}
+  .thumb{width:56px;height:40px;border-radius:6px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+  .meta .title{font-weight:700}
+  .meta .desc{font-size:13px;color:var(--muted)}
+
+  .item-actions{display:flex;gap:8px;align-items:center}
+  .small-btn{padding:8px 10px;border-radius:8px;border:0;cursor:pointer}
+  .btn-view{background:var(--accent);color:#fff}
+  .btn-delete{background:#ff5252;color:#fff}
+
+  /* responsive: collapse sidebar */
+  .hamburger{
+    display:none;
+    background:var(--accent);color:#fff;padding:8px;border-radius:8px;border:0;
+  }
+
+  @media (max-width: 880px){
+    .sidebar{width:220px;padding:14px}
+    .brand h3{font-size:16px}
+    .grid{grid-template-columns:1fr}
+  }
+  @media (max-width: 720px){
+    .wrap{flex-direction:column}
+    .sidebar{
+      width:100%;display:flex;flex-direction:row;align-items:center;gap:12px;padding:10px 12px;overflow:hidden;
+    }
+    nav.nav{display:flex;gap:8px;overflow:auto;flex:1}
+    nav.nav a{white-space:nowrap;font-size:13px;padding:8px 10px}
+    .hamburger{display:inline-block}
+    .content{padding:14px}
+    .card{padding:12px}
+  }
+
+  /* tiny */
+  @media (max-width:420px){
+    .brand img{width:40px;height:40px}
+    .meta .title{font-size:14px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="terra_foto/favicon_circular2.png" alt="logo">
+      <div>
+        <h3>Terra Routes</h3>
+        <p>Admin Panel</p>
+      </div>
+    </div>
+
+    <nav class="nav" id="navLinks">
+      <a href="#" data-target="dashboard" class="active">Dashboard</a>
+      <a href="#" data-target="duyuru-ekle">Duyuru Ekle</a>
+      <a href="#" data-target="duyurular">Duyurular</a>
+      <a href="#" data-target="ayarlar">Ayarlar</a>
+    </nav>
+
+    <div class="bottom">
+      <a class="btn-logout" id="back-site" href="index.html">Siteye Dön</a>
+      <a class="btn-logout" id="logoutBtn" href="#">Çıkış Yap</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <div class="topbar">
+      <h2 id="pageTitle">Dashboard</h2>
+      <div class="top-actions">
+        <button class="hamburger" id="toggleNav">Menü</button>
+        <button class="btn" id="newDuyuruBtn">Yeni Duyuru</button>
+      </div>
+    </div>
+
+    <section id="dashboard" class="card view">
+      <h3>Hoşgeldiniz, Admin</h3>
+      <p style="color:var(--muted)">Buradan duyuruları ekleyebilir, görüntüleyebilir ve silebilirsiniz.</p>
+    </section>
+
+    <section id="duyuru-ekle" class="card view" style="display:none;margin-top:12px">
+      <h3>Duyuru Ekle</h3>
+
+      <form id="duyuruForm" style="margin-top:12px">
+        <div class="form-group">
+          <label for="baslik">Duyuru Başlığı</label>
+          <input id="baslik" type="text" placeholder="Başlık girin" required>
+        </div>
+
+        <div class="form-group" style="margin-top:8px">
+          <label for="icerik">Duyuru İçeriği</label>
+          <textarea id="icerik" placeholder="İçeriği yazın..." required></textarea>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label for="pdfFile">PDF Ekle (opsiyonel)</label>
+            <input id="pdfFile" type="file" accept=".pdf">
+          </div>
+          <div>
+            <label for="wordFile">Word Belgesi (opsiyonel)</label>
+            <input id="wordFile" type="file" accept=".doc,.docx">
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="imageFile">Resim Ekle (opsiyonel)</label>
+          <input id="imageFile" type="file" accept="image/*">
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" type="submit">Duyuruyu Kaydet</button>
+          <button type="button" class="btn-ghost" id="resetForm">Temizle</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="duyurular" class="card view" style="display:none;margin-top:12px">
+      <h3>Eklenmiş Duyurular</h3>
+      <div id="duyuruList" style="margin-top:12px"></div>
+    </section>
+
+    <section id="ayarlar" class="card view" style="display:none;margin-top:12px">
+      <h3>Ayarlar</h3>
+      <p style="color:var(--muted)">Basit ayarlar alanı (örnek).</p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* -------------------------
+  Basit taraflı oturum kontrolu (demo)
+-------------------------*/
+const isLoggedIn = localStorage.getItem('isLoggedIn');
+if (!isLoggedIn) {
+  // istersen açılışta admin girişi zorunlu kılabilirsin:
+  // window.location.href = 'adminpanel2.html';
+}
+
+/* -------------------------
+  NAVIGATION
+-------------------------*/
+const links = document.querySelectorAll('#navLinks a');
+const views = document.querySelectorAll('.view');
+const pageTitle = document.getElementById('pageTitle');
+
+links.forEach(a=>{
+  a.addEventListener('click', (e)=>{
+    e.preventDefault();
+    links.forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+
+    const tgt = a.dataset.target;
+    views.forEach(v=>{
+      if (v.id === tgt) v.style.display = 'block';
+      else v.style.display = 'none';
+    });
+    // Başlık
+    pageTitle.innerText = a.textContent;
+    // Scroll top
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// hamburger / mobile toggle: kaydırma yerine küçük ekranlarda menüyü scrollable yapıyoruz
+document.getElementById('toggleNav').addEventListener('click', ()=>{
+  const nav = document.getElementById('navLinks');
+  if (nav.style.display === 'flex' || nav.style.display === '') {
+    nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+  } else {
+    nav.style.display = 'flex';
+  }
+});
+document.getElementById('newDuyuruBtn').addEventListener('click', ()=>{
+  document.querySelector('[data-target=\"duyuru-ekle\"]').click();
+});
+
+
+/* -------------------------
+  Duyuru CRUD (localStorage)
+-------------------------*/
+const FORM = document.getElementById('duyuruForm');
+const LIST = document.getElementById('duyuruList');
+
+function readFileAsDataURL(file){
+  return new Promise((res,rej)=>{
+    if(!file) return res(null);
+    const reader = new FileReader();
+    reader.onload = ()=>res(reader.result);
+    reader.onerror = ()=>rej();
+    reader.readAsDataURL(file);
+  });
+}
+
+async function saveDuyuru(e){
+  e.preventDefault();
+  const baslik = document.getElementById('baslik').value.trim();
+  const icerik = document.getElementById('icerik').value.trim();
+  const pdfFile = document.getElementById('pdfFile').files[0] || null;
+  const wordFile = document.getElementById('wordFile').files[0] || null;
+  const imageFile = document.getElementById('imageFile').files[0] || null;
+
+  if(!baslik || !icerik){ alert('Başlık ve içerik gerekli.'); return; }
+
+  // Dosyaları dataURL olarak oku (küçük demo amaçlı — büyük dosyalar için uygun değil)
+  const pdfData = await readFileAsDataURL(pdfFile);
+  const wordData = await readFileAsDataURL(wordFile);
+  const imageData = await readFileAsDataURL(imageFile);
+
+  const items = JSON.parse(localStorage.getItem('duyurular_v1')||'[]');
+  items.unshift({
+    id: Date.now(),
+    baslik,icerik,
+    pdf: pdfFile ? {name: pdfFile.name, data: pdfData} : null,
+    word: wordFile ? {name: wordFile.name, data: wordData} : null,
+    image: imageFile ? {name: imageFile.name, data: imageData} : null,
+    created: new Date().toISOString()
+  });
+
+  localStorage.setItem('duyurular_v1', JSON.stringify(items));
+  FORM.reset();
+  renderList();
+  document.querySelector('[data-target=\"duyurular\"]').click();
+}
+
+function renderList(){
+  const items = JSON.parse(localStorage.getItem('duyurular_v1')||'[]');
+  LIST.innerHTML = '';
+  if(items.length===0){
+    LIST.innerHTML = '<p style=\"color:var(--muted)\">Henüz duyuru yok.</p>';
+    return;
+  }
+  items.forEach(it=>{
+    const el = document.createElement('div');
+    el.className = 'list-item';
+    el.innerHTML = `
+      <div class="meta">
+        <div class="thumb">${ it.image ? '<img src=\"'+it.image.data+'\" style=\"width:100%;height:100%;object-fit:cover;border-radius:6px\"/>' : 'PDF/IMG' }</div>
+        <div>
+          <div class="title">${escapeHtml(it.baslik)}</div>
+          <div class="desc">${escapeHtml(it.icerik.substring(0,120))}...</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px">Eklenme: ${ new Date(it.created).toLocaleString() }</div>
+        </div>
+      </div>
+      <div class="item-actions">
+        ${ it.pdf ? `<button class="small-btn btn-view" onclick='downloadFile(${it.id},"pdf")'>PDF</button>` : '' }
+        ${ it.word ? `<button class="small-btn btn-view" onclick='downloadFile(${it.id},"word")'>Word</button>` : '' }
+        <button class="small-btn btn-delete" onclick="deleteItem(${it.id})">Sil</button>
+      </div>
+    `;
+    LIST.appendChild(el);
+  });
+}
+
+function escapeHtml(text){
+  return text.replace(/[&<>"']/g, function(m){
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[m];
+  });
+}
+
+
+window.deleteItem = function(id){
+  if(!confirm('Bu duyuruyu silmek istediğinize emin misiniz?')) return;
+  let items = JSON.parse(localStorage.getItem('duyurular_v1')||'[]');
+  items = items.filter(i=>i.id !== id);
+  localStorage.setItem('duyurular_v1', JSON.stringify(items));
+  renderList();
+}
+
+window.downloadFile = function(id,type){
+  const items = JSON.parse(localStorage.getItem('duyurular_v1')||'[]');
+  const it = items.find(x=>x.id===id);
+  if(!it) return alert('Dosya bulunamadı.');
+  const fileObj = type==='pdf' ? it.pdf : it.word;
+  if(!fileObj) return alert('Dosya mevcut değil.');
+  const a = document.createElement('a');
+  a.href = fileObj.data;
+  a.download = fileObj.name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+/* helpers */
+document.getElementById('resetForm').addEventListener('click', ()=>FORM.reset());
+FORM.addEventListener('submit', saveDuyuru);
+
+renderList();
+
+/* logout demo */
+document.getElementById('logoutBtn').addEventListener('click', (e)=>{
+  e.preventDefault();
+  localStorage.removeItem('isLoggedIn');
+  alert('Çıkış yapıldı (demo).');
+  // yönlendirme istersen:
+   window.location.href = 'index.html';
+});
+
+</script>
+</body>
+</html>
+
+

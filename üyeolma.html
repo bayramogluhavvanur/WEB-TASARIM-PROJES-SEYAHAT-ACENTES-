@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üyelik | Terra Routes</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        body {
+            background: #e7f0ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .uye-ol-container {
+            width: 90%;
+            max-width: 450px;
+            background: white;
+            padding: 35px;
+            margin: 120px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .baslik {
+            font-size: 26px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .btn-kayit {
+            width: 100%;
+            padding: 12px;
+            background: #0069ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-kayit:hover {
+            background: #0053d1;
+        }
+
+        .alt-yazi {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .alt-yazi a {
+            color: #0069ff;
+            text-decoration: none;
+        }
+    </style>
+        <!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hakkımızda | Terra Routes</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="terra_foto/favicon_circular2.png"  rel="icon" >
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="/WEB-TASARIM-PROJES-/assets/css/main.css">
+
+
+  <!-- =======================================================
+  * Template Name: TravelTime
+  * Template URL: https://bootstrapmade.com/traveltime-bootstrap-travel-template/
+  * Updated: Jul 28 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+</head>
+<style>
+/* PC görünümü – Değişmez */
+.countdown {
+  font-size: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Tablet ve Mobil */
+@media (max-width: 768px) {
+
+  .top-bar {
+    flex-direction: column; /* Üst yazı + sayaç + buton dikey hizalansın */
+    gap: 6px;
+    text-align: center;
+    padding: 8px 5px;
+  }
+
+  .top-text {
+    font-size: 14px; /* Küçült */
+  }
+
+  .countdown {
+    font-size: 14px; /* Sayaç yazıları küçülsün */
+    gap: 6px;
+  }
+
+  .countdown span {
+    font-size: 14px; /* Sayılar küçülsün */
+  }
+
+  .top-btn {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Çok küçük cihazlar (400px ve altı) */
+@media (max-width: 420px) {
+
+  .top-text {
+    font-size: 12px;
+  }
+
+  .countdown {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .countdown span {
+    font-size: 12px;
+  }
+
+  .top-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+
+/* Normal (PC) görünüm – değişmiyor */
+.right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 12px;
+}
+
+/* Mobil + Tablet görünümü */
+@media (max-width: 768px) {
+
+  .admin-menu {
+    padding: 8px 10px;
+  }
+
+  .menu-logo {
+    height: 35px;
+  }
+
+  .right a {
+    font-size: 12px;     /* Yazıları küçült */
+    margin-left: 6px;    /* Araları daralt */
+  }
+
+  .right {
+    gap: 6px;            /* Elemanlar arası boşluk azalsın */
+  }
+
+  .login-btn,
+  .signup-btn {
+    padding: 4px 8px;    /* Butonlar küçülsün */
+    font-size: 12px;
+  }
+}
+
+</style>
+
+<body>
+     <div class="header-fixed">
+<div class="top-bar">
+<div class="top-text">Erken Rezervasyon Son Gün : 18 Aralık</div>
+  <div class="countdown">
+    <span id="days" class="blink">00</span> Gün
+    <span id="hours" class="blink">00</span> Saat
+    <span id="minutes" class="blink">00</span> Dakika
+  
+  </div>
+
+  <button class="top-btn">Hemen İncele</button>
+</div>
+
+
+<!-- Admin Panel Menüsü -->
+<div class="admin-menu">
+  <div class="left">
+    <a href="index.html">
+      <img src="terra_foto/favicon_circular2.png" class="menu-logo" alt="Logo">
+    </a>
+  </div>
+
+  <div class="right">
+    <a href="contact.html">444 0 444</a>
+    <a href="contact.html">Yardım</a>
+    <a href="rezervsyonn-no.html">Rezervasyonlarınız</a>
+    <a href="adminpanel2.html" class="login-btn">Giriş Yap</a>
+    <a href="üyeolma.html" class="signup-btn">Üye Ol</a>
+  </div>
+</div>
+
+</div>
+
+
+    <div class="uye-ol-container">
+        <h2 class="baslik">Üye Ol</h2>
+
+        <form>
+
+            <div class="form-group">
+                <label>Ad Soyad</label>
+                <input type="text" id="adsoyad" placeholder="Adınızı ve soyadınızı girin">
+            </div>
+
+            <div class="form-group">
+                <label>E-posta</label>
+                <input type="email" id="email" placeholder="E-posta adresinizi girin">
+            </div>
+
+            <div class="form-group">
+                <label>Telefon</label>
+                <input type="number" id="telno" placeholder="Telefon numaranızı girin">
+            </div>
+
+            <div class="form-group">
+                <label>Şifre</label>
+                <input type="password" id="sifre" placeholder="Şifre oluşturun">
+            </div>
+
+            <div class="form-group">
+                <label>Şifre Tekrar</label>
+                <input type="password" id="sifretekrar" placeholder="Şifrenizi tekrar girin">
+            </div>
+
+            <button type="submit" class="btn-kayit">Üye Ol</button>
+        </form>
+
+        <p class="alt-yazi">
+            Zaten hesabınız var mı?  
+            <a href="adminpanel2.html">Giriş Yap</a>
+        </p>
+    </div>
+
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+   <script>
+  // Sayaç için hedef tarih
+  const target = new Date("2025-12-18T23:59:59").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }, 1000);
+</script>
+
+</script>
+
+<script>
+
+document.querySelector(".btn-kayit").addEventListener("click", function(e){
+    e.preventDefault(); // Formun otomatik gönderilmesini durdurur
+
+    // Tüm inputları al
+    const adsoyad = document.getElementById("adsoyad").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const telno = document.getElementById("telno").value.trim();
+    const sifre = document.getElementById("sifre").value.trim();
+    const sifreTekrar = document.getElementById("sifretekrar").value.trim();
+
+    // Basit doğrulama
+    if (sifre !== sifreTekrar) {
+        alert("Şifreler uyuşmuyor!");
+        return;
+    }
+
+    // Kayıt başarılı → Yönlendir
+    window.location.href = "index.html";
+});
+</script>
+
+
+</body>
+</html>
